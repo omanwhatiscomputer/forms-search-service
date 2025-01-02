@@ -6,7 +6,8 @@ using SearchService.Data;
 using SearchService.Services;
 
 Environment.SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", "Development");
-if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development"){
+if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development")
+{
     var cwd = Directory.GetCurrentDirectory();
     DotEnv.Load(Path.Combine(cwd, ".env"));
 }
@@ -17,10 +18,10 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowSpecificOrigin",
         builder =>
         {
-            builder.WithOrigins("http://localhost:3000")
+            builder.WithOrigins("https://forms-frontend-psi.vercel.app")
                 .AllowAnyMethod()
                 .AllowAnyHeader()
-                .AllowCredentials();;
+                .AllowCredentials(); ;
         });
 });
 
